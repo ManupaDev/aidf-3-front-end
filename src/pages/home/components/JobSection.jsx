@@ -1,0 +1,39 @@
+import JobCard from "./JobCard";
+
+function JobSection() {
+  const jobs = [
+    {
+      _id: "xyz",
+      title: "Intern - Software Engineer",
+      type: "Full-time",
+      location: "Remote",
+    },
+    {
+      _id: "abc",
+      title: "Software Engineer",
+      type: "Full-time",
+      location: "Colombo, Sri Lanka",
+    },
+    {
+      _id: "123",
+      title: "Software Architect",
+      type: "Hybrid",
+      location: "Rajagiriya, Sri Lanka",
+    },
+  ];
+
+  return (
+    <section className="py-8">
+      <h2>Available Jobs</h2>
+      <div className="mt-4 flex flex-col gap-y-8">
+        {jobs.map((job) => {
+          return (
+            <JobCard key={job._id} job={job} />
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+export default JobSection;
