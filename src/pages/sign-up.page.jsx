@@ -1,5 +1,9 @@
+import Navigation from "@/components/shared/Navigation";
+
 function SignUpPage() {
-    return ( <main className="container px-4">SignUp</main> );
+    return ( <main>
+        <h1>Sign Up</h1>
+    </main> );
 }
 
 export default SignUpPage;
