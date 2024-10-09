@@ -5,16 +5,19 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { createJobApplication } from "@/lib/api/jobApplication";
 import { getJobById } from "@/lib/api/jobs";
+import { useUser } from "@clerk/clerk-react";
 import { Briefcase, MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 
 function JobPage() {
+  const { isLoaded, isSignedIn, user } = useUser();
+
   const [job, setJob] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [error, setError] = useState(null);
-  
+
   const params = useParams();
 
   useEffect(() => {
@@ -47,8 +50,12 @@ function JobPage() {
       fullName: formData.fullName,
       answers: [formData.a1, formData.a2, formData.a3],
       jobId: job._id,
-    })
+    });
   };
+
+  // if (!isSignedIn) {
+  //   return <Navigate to="/sign-in" />;
+  // }
 
   if (isLoading) {
     return <div>Loading...</div>;

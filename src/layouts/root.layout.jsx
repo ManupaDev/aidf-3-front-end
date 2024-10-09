@@ -1,12 +1,12 @@
-import Navigation from "@/components/shared/Navigation";
 import { Outlet } from "react-router-dom";
+import Navigation from "@/components/shared/Navigation";
 
 function RootLayout() {
   return (
-    <div className="container px-4">
+    <main className="container px-4">
       <Navigation />
       <Outlet />
-    </div>
+    </main>
   );
 }
 
