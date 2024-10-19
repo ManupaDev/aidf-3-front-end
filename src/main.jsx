@@ -57,7 +57,7 @@ const router = createBrowserRouter([
           {
             path: "admin/job/:_id/application/:jobApplicationId",
             element: <AdminJobApplicationPage />,
-          }
+          },
         ],
       },
     ],

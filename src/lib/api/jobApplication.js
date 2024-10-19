@@ -33,5 +33,18 @@ export const getJobApplicationsForJob = async (jobId) => {
 };
 
 export const getJobApplicationById = async (jobApplicationId) => {
-  "/jobapplications/:jobApplicationId"
-}
+  const token = await window.Clerk?.session?.getToken();
+
+  const res = await fetch(`http://localhost:8000/api/jobapplications/${jobApplicationId}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch job application");
+  }
+  const data = await res.json();
+  return data;
+};
