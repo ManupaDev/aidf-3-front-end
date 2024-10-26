@@ -1,23 +1,5 @@
 export const getJobs = async () => {
-  //   fetch("http://localhost:8000/api/jobs", {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   })
-  //     .then((res) => {
-  //       console.log(res);
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       console.log(data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
-  const res = await fetch("http://localhost:8000/api/jobs", {
+   const res = await fetch("http://localhost:8000/api/jobs", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
